@@ -49,11 +49,16 @@
 .task__button {
   background: none;
   border: 0px;
-  color: #888;
   font-size: 15px;
   width: 60px;
   font-family: Lato, sans-serif;
   cursor: pointer;
+}
+
+.task__button,
+.task__text,
+.todo-completed .task__label  {
+  color: #888;  
 }
 
 .task__button:hover {
@@ -82,7 +87,6 @@
   background: #fff;
   border-radius: 6px;
   font-family: Lato, sans-serif;
-  color: #888;
 }
 
 .task__text:focus {
@@ -117,7 +121,6 @@
 
 .todo-completed .task__label {
   text-decoration: line-through;
-  color: #888;
 }
 
 .todo__task_edit .task__text {
