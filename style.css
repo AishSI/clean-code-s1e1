@@ -33,7 +33,7 @@
 .task {
   width: 56%;
   display: inline-block;
-  flex-grow: 1
+  flex-grow: 1;
 }
 
 .todo__list {
@@ -122,7 +122,7 @@
 
 .todo__task_edit .task__text {
   display: inline-block;
-  width: 224px
+  width: 224px;
 }
 
 .todo__task_edit .task__label {
