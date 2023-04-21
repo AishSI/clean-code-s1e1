@@ -5,28 +5,25 @@ body {
   font-family: Lato, sans-serif;
 }
 
-.aaa {
-  width: 500px;
-  margin: 0 auto;
-  display: block;
+.header {
   text-align: right;
 }
 
-.aaa img {
+.header img {
   width: 100%;
 }
 
-.aaa .more_inf {
+.header .header__link {
   font-family: fantasy, cursive;
 }
 
 @media (max-width:768px) {
-  .aaa {
+  .header {
     text-align: center;
   }
 }
 
-.centered-main-page-element {
+.wrapper {
   display: block;
   width: 500px;
   margin: 0 auto 0;
@@ -38,11 +35,7 @@ body {
   flex-grow: 1
 }
 
-.task-row-wrapper {
-  display: flex;
-}
-
-ul {
+.todo__list {
   margin: 0;
   padding: 0px;
 }
@@ -167,4 +160,25 @@ ul li.editMode input[type=text] {
 
 ul li.editMode label {
   display: none;
+}
+
+.todo__task {
+  overflow: hidden;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-add {
+  padding-top: 1em;
+}
+
+.todo-add .todo__task {
+  border: none;
+}
+
+.todo-schedule__caption {
+  padding-top: 9px;
 }
