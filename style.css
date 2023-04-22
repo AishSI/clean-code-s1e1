@@ -41,6 +41,10 @@
   padding: 0px;
 }
 
+.list__item {
+  list-style-type: none;
+}
+
 .task__text,
 .task__button {
   outline: none;
