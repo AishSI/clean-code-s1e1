@@ -4,38 +4,37 @@ var incompleteTaskHolder = document.querySelector(".todo-schedule__list");//ul o
 var completedTasksHolder = document.querySelector(".todo-completed__list");//completed-tasks
 
 var createNewTaskElement = function (taskString) {
-  var listItem = document.createElement("li");
-  listItem.className = "todo__task"
+  var listItem = document.createElement("li");  
+  var divItem = document.createElement("div");  
   var checkBox = document.createElement("input");//checkbx
   var label = document.createElement("label");//label
   var editInput = document.createElement("input");//text
   var editButton = document.createElement("button");//edit button
-  var deleteButton = document.createElement("button");//delete button
-
+  var deleteButton = document.createElement("button");//delete button  
   var deleteButtonImg = document.createElement("img");//delete button image
+  
+  listItem.className = "list__item"
+  divItem.className = "todo__task";
   deleteButtonImg.className = "button__image_delete";
-
   label.innerText = taskString;
   label.className = "task task__label";
-
   checkBox.type = "checkbox";
   checkBox.className = "task__checkbox";
-
   editInput.type = "text";
   editInput.className = "task task__text";
-
   editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
   editButton.className = "task__button task__button_edit";
-
   deleteButton.className = "task__button task__button_delete";
   deleteButtonImg.src = "./remove.svg";
   deleteButton.appendChild(deleteButtonImg);
 
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
+  listItem.appendChild(divItem);
+  divItem.appendChild(checkBox);
+  divItem.appendChild(label);
+  divItem.appendChild(editInput);
+  divItem.appendChild(editButton);
+  divItem.appendChild(deleteButton);
+  
   return listItem;
 }
 
@@ -54,12 +53,14 @@ var editTask = function () {
   console.log("Edit Task...");
   console.log("Change 'edit' to 'save'");
 
-  var listItem = this.parentNode;
+  var listItem = this.parentNode.parentNode;
 
   var editInput = listItem.querySelector(".task__text");
   var label = listItem.querySelector(".task__label");
   var editBtn = listItem.querySelector(".task__button_edit");
-  var containsClass = listItem.classList.contains("todo__task_edit");
+
+  var divItem = listItem.querySelector(".todo__task");
+  var containsClass = divItem.classList.contains("todo__task_edit");
   if (containsClass) {
 
     label.innerText = editInput.value;
@@ -69,13 +70,13 @@ var editTask = function () {
     editBtn.innerText = "Save";
   }
 
-  listItem.classList.toggle("todo__task_edit");
+  divItem.classList.toggle("todo__task_edit");
 };
 
 var deleteTask = function () {
   console.log("Delete Task...");
 
-  var listItem = this.parentNode;
+  var listItem = this.parentNode.parentNode;
   var ul = listItem.parentNode;
   ul.removeChild(listItem);
 }
@@ -83,7 +84,7 @@ var deleteTask = function () {
 var taskCompleted = function () {
   console.log("Complete Task...");
 
-  var listItem = this.parentNode;
+  var listItem = this.parentNode.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 }
@@ -91,7 +92,7 @@ var taskCompleted = function () {
 
 var taskIncomplete = function () {
   console.log("Incomplete Task...");
-  var listItem = this.parentNode;
+  var listItem = this.parentNode.parentNode;
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
 }

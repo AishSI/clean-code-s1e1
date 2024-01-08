@@ -41,6 +41,10 @@
   padding: 0px;
 }
 
+.list__item {
+  list-style-type: none;
+}
+
 .task__text,
 .task__button {
   outline: none;
@@ -151,4 +155,12 @@
 
 .todo-schedule__caption {
   padding-top: 9px;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
 }
